@@ -103,7 +103,7 @@ class BotCommands(Node):
               script: str = None,
               conf: str = None,
               async_backend: bool = False,
-              timeout: int = 5
+              timeout: int = 20
               ):
         resp = self._start_cmd.call(
             msg=StartCommandMessage.Request(
@@ -119,7 +119,7 @@ class BotCommands(Node):
     def stop(self,
              skip_order_cancellation: bool = False,
              async_backend: bool = False,
-             timeout: int = 5
+             timeout: int = 20
              ):
         resp = self._stop_cmd.call(
             msg=StopCommandMessage.Request(
@@ -132,7 +132,7 @@ class BotCommands(Node):
 
     def import_strategy(self,
                         strategy: str,
-                        timeout: int = 5
+                        timeout: int = 20
                         ):
         resp = self._import_cmd.call(
             msg=ImportCommandMessage.Request(strategy=strategy),
@@ -142,7 +142,7 @@ class BotCommands(Node):
 
     def config(self,
                params: List[Tuple[str, Any]],
-               timeout: int = 5
+               timeout: int = 20
                ):
         resp = self._config_cmd.call(
             msg=ConfigCommandMessage.Request(params=params),
@@ -152,7 +152,7 @@ class BotCommands(Node):
 
     def status(self,
                async_backend: bool = False,
-               timeout: int = 5
+               timeout: int = 20
                ):
         resp = self._status_cmd.call(
             msg=StatusCommandMessage.Request(async_backend=async_backend),
@@ -162,7 +162,7 @@ class BotCommands(Node):
 
     def history(self,
                 async_backend: bool = False,
-                timeout: int = 5
+                timeout: int = 20
                 ):
         resp = self._history_cmd.call(
             msg=HistoryCommandMessage.Request(async_backend=async_backend),
@@ -174,7 +174,7 @@ class BotCommands(Node):
                       exchange: str,
                       asset: str,
                       amount: float,
-                      timeout: int = 5
+                      timeout: int = 20
                       ):
         resp = self._balance_limit_cmd.call(
             msg=BalanceLimitCommandMessage.Request(
@@ -189,7 +189,7 @@ class BotCommands(Node):
     def balance_paper(self,
                       asset: str,
                       amount: float,
-                      timeout: int = 5
+                      timeout: int = 20
                       ):
         resp = self._balance_paper_cmd.call(
             msg=BalancePaperCommandMessage.Request(
@@ -202,7 +202,7 @@ class BotCommands(Node):
 
     def shortcut(self,
                  params=List[List[Any]],
-                 timeout: int = 5
+                 timeout: int = 20
                  ):
         resp = self._command_shortcut_uri.call(
             msg=CommandShortcutMessage.Request(
