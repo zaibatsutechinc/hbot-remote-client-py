@@ -49,7 +49,8 @@ class BotListener(Node):
             host=host,
             port=int(port),
             username=username,
-            password=password
+            password=password,
+            reconnect_delay=15,
         )
 
         super().__init__(
